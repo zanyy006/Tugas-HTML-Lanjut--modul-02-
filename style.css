@@ -1,0 +1,551 @@
+/* ===== VARIABEL & RESET ===== */
+:root {
+    --gold: #c9a84c;
+    --gold-hover: #b8973e;
+    --dark: #2b2b2b;
+    --dark-hero: #1e1e1e;
+    --yellow-section: #c9a84c;
+    --white: #ffffff;
+    --light-gray: #f5f5f5;
+    --border-gray: #e0e0e0;
+    --text-gray: #555;
+}
+ 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+ 
+html {
+    scroll-behavior: smooth;
+}
+ 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--dark);
+}
+ 
+/* ===== NAVBAR ===== */
+.nav-container {
+    background-color: var(--dark);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--gold);
+}
+ 
+.nav-container header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 65px;
+    padding: 0 2rem;
+}
+ 
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+ 
+.logo-icon {
+    font-size: 1.8rem;
+}
+ 
+.logo-text {
+    color: var(--gold);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+ 
+/* Nav links */
+.nav-container nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+ 
+.nav-container nav ul li a {
+    display: block;
+    color: var(--white);
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 65px;
+    line-height: 65px;
+    font-size: 0.85rem;
+    transition: color 0.3s;
+}
+ 
+.nav-container nav ul li a:hover,
+.nav-container nav ul li a.active {
+    color: var(--gold);
+    border-bottom: 3px solid var(--gold);
+}
+ 
+/* Language flags */
+.lang-flags {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-left: 1rem;
+}
+ 
+.lang-flags a {
+    display: inline-flex !important;
+    align-items: center;
+    height: auto !important;
+    line-height: normal !important;
+    padding: 0 !important;
+    border: none !important;
+}
+ 
+.lang-flags img {
+    width: 22px;
+    height: auto;
+    border-radius: 2px;
+}
+ 
+/* Hamburger (hidden on desktop) */
+.nav-container header label,
+#hamburger {
+    display: none;
+}
+ 
+/* ===== HERO SECTION ===== */
+.hero-container {
+    background-color: var(--dark-hero);
+    background-image: radial-gradient(circle at center, #3a3a2e 0%, #1e1e1e 70%);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+ 
+/* Watermark logo di belakang */
+.hero-container::before {
+    content: "🛡️";
+    position: absolute;
+    font-size: 400px;
+    opacity: 0.04;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+ 
+.hero-text {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+    max-width: 800px;
+}
+ 
+.hero-text h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+}
+ 
+.hero-text h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+ 
+.hero-divider {
+    width: 60px;
+    height: 4px;
+    background-color: var(--gold);
+    margin: 1rem auto;
+}
+ 
+.hero-desc {
+    color: #ccc;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+ 
+.hero-subdesc {
+    color: #aaa;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+ 
+/* App store buttons */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+ 
+.btn-store {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #111;
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    border: 1px solid #444;
+    min-width: 150px;
+    transition: background 0.3s;
+}
+ 
+.btn-store:hover {
+    background-color: #222;
+}
+ 
+.btn-store i {
+    font-size: 1.8rem;
+    color: var(--white);
+}
+ 
+.btn-store div {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+ 
+.btn-store-small {
+    font-size: 0.65rem;
+    color: #ccc;
+}
+ 
+.btn-store-big {
+    font-size: 1rem;
+    font-weight: 600;
+}
+ 
+/* Pelajari lebih lanjut button */
+.btn-pelajari {
+    display: inline-block;
+    background-color: var(--gold);
+    color: var(--dark);
+    text-decoration: none;
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+ 
+.btn-pelajari:hover {
+    background-color: var(--gold-hover);
+}
+ 
+/* ===== TENTANG SECTION ===== */
+.tentang-container {
+    background-color: var(--gold);
+    padding: 5rem 2rem;
+}
+ 
+.tentang-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+ 
+.tentang-content h2 {
+    font-size: 2rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+ 
+.section-divider {
+    width: 50px;
+    height: 3px;
+    background-color: var(--white);
+    margin: 0.8rem auto 2rem;
+}
+ 
+.tentang-content p {
+    color: var(--white);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    opacity: 0.95;
+}
+ 
+/* ===== SYARAT & KETENTUAN SECTION ===== */
+.syarat-container {
+    background-color: var(--white);
+    padding: 4rem 2rem;
+}
+ 
+.syarat-content {
+    max-width: 950px;
+    margin: 0 auto;
+}
+ 
+.syarat-content > h2 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--dark);
+}
+ 
+/* Card syarat */
+.syarat-card {
+    border: 1px solid var(--border-gray);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+ 
+.syarat-card-header {
+    background-color: var(--light-gray);
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-gray);
+}
+ 
+.syarat-card-header h3 {
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--dark);
+}
+ 
+.syarat-card-body {
+    display: flex;
+    gap: 2rem;
+    padding: 1.5rem;
+}
+ 
+.syarat-col {
+    flex: 1;
+}
+ 
+.syarat-col h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+ 
+.syarat-col ul {
+    list-style: none;
+    padding: 0;
+}
+ 
+.syarat-col ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 0.8rem;
+    font-size: 0.88rem;
+    color: var(--text-gray);
+    line-height: 1.5;
+}
+ 
+.syarat-col ul li i {
+    color: var(--dark);
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+ 
+/* Accordion */
+.accordion {
+    margin-top: 0.5rem;
+}
+ 
+.accordion-item {
+    border: 1px solid var(--border-gray);
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+}
+ 
+.accordion-btn {
+    width: 100%;
+    background-color: var(--light-gray);
+    border: none;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--dark);
+    transition: background 0.2s;
+}
+ 
+.accordion-btn:hover {
+    background-color: #ebebeb;
+}
+ 
+.accordion-btn i {
+    transition: transform 0.3s;
+    font-size: 0.9rem;
+    color: #999;
+}
+ 
+.accordion-content {
+    display: none;
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    line-height: 1.7;
+    border-top: 1px solid var(--border-gray);
+}
+ 
+/* ===== CTA SECTION ===== */
+.cta-container {
+    background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+        url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Mabes_Polri.jpg/1280px-Mabes_Polri.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 5rem 2rem;
+    text-align: center;
+}
+ 
+.cta-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+ 
+.cta-sub {
+    color: #ccc;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+ 
+.cta-title {
+    color: var(--white);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+ 
+.cta-divider {
+    width: 60px;
+    height: 4px;
+    background-color: var(--gold);
+    margin: 0 auto;
+}
+ 
+/* ===== FOOTER ===== */
+.footer-container {
+    background-color: var(--dark-hero);
+    color: #aaa;
+    text-align: center;
+    padding: 1.2rem;
+    font-size: 0.85rem;
+}
+ 
+/* ===== BREAKPOINT TABLET (max 768px) ===== */
+@media screen and (max-width: 768px) {
+ 
+    /* Hamburger */
+    .nav-container header label {
+        display: inline-block;
+        color: var(--white);
+        font-size: 1.8rem;
+        cursor: pointer;
+        padding: 0.3rem 0.5rem;
+    }
+ 
+    .nav-container header {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 0.8rem 1rem;
+    }
+ 
+    .nav-container nav {
+        display: none;
+        width: 100%;
+    }
+ 
+    .nav-container header input:checked ~ nav {
+        display: block;
+    }
+ 
+    .nav-container nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+ 
+    .nav-container nav ul li a {
+        height: auto;
+        line-height: normal;
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid #333;
+    }
+ 
+    .nav-container nav ul li a:hover,
+    .nav-container nav ul li a.active {
+        border-bottom: 1px solid #333;
+    }
+ 
+    .lang-flags {
+        padding: 0.5rem 1rem;
+    }
+ 
+    /* Hero */
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+ 
+    .hero-text h2 {
+        font-size: 1.3rem;
+    }
+ 
+    /* Syarat */
+    .syarat-card-body {
+        flex-direction: column;
+    }
+ 
+    /* CTA */
+    .cta-title {
+        font-size: 1.6rem;
+    }
+}
+ 
+/* ===== BREAKPOINT HANDPHONE (max 481px) ===== */
+@media screen and (max-width: 481px) {
+ 
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+ 
+    .hero-text h2 {
+        font-size: 1rem;
+    }
+ 
+    .hero-subdesc {
+        font-size: 0.85rem;
+    }
+ 
+    .btn-store {
+        min-width: 130px;
+        padding: 0.5rem 0.8rem;
+    }
+ 
+    .tentang-container {
+        padding: 3rem 1.5rem;
+    }
+ 
+    .syarat-container {
+        padding: 3rem 1rem;
+    }
+}
+ 
